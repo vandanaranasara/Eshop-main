@@ -7,6 +7,10 @@ from django.views import View
 from store.models.product import Products
 from store.models.orders import Order
 
+from django.core.mail import send_mail
+from django.conf import settings
+from store.models.customer import Customer
+
 
 class CheckOut(View):
     def post(self, request):
@@ -27,5 +31,16 @@ class CheckOut(View):
                           quantity=cart.get(str(product.id)))
             order.save()
         request.session['cart'] = {}
+        
+        # Send confirmation email
+        customer_obj = Customer.objects.get(id=customer)
+        subject = 'Order Confirmation - Eshop'
+        message = f'Hi {customer_obj.first_name}, your order has been placed successfully!'
+        from_email = settings.DEFAULT_FROM_EMAIL
+        recipient_list = [customer_obj.email]
+
+        send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+
 
         return redirect('cart')
+    
