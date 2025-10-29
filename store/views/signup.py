@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
 from store.models.customer import Customer
 from django.views import View
+from store.tasks import send_welcome_email_task
 
 
 class Signup (View):
@@ -36,6 +37,9 @@ class Signup (View):
             print (first_name, last_name, phone, email, password)
             customer.password = make_password (customer.password)
             customer.register ()
+            
+            send_welcome_email_task.delay(email)
+            
             return redirect ('store')
         else:
             data = {

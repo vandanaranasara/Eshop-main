@@ -53,14 +53,6 @@ MIDDLEWARE = [
 
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'       
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'vandana.ranasara25@gmail.com'       
-EMAIL_HOST_PASSWORD = 'qkpi zlbp zivd ejjn'     
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
 
 ROOT_URLCONF = 'Eshop.urls'
 
@@ -137,4 +129,20 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
+#Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'       
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'vandana.ranasara25@gmail.com'       
+EMAIL_HOST_PASSWORD = 'qkpi zlbp zivd ejjn'     
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Celery configuration
+CELERY_BROKER_URL = 'redis://eshop_redis:6379/0'
+CELERY_RESULT_BACKEND = 'redis://eshop_redis:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
 

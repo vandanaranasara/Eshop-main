@@ -10,20 +10,22 @@ from store.models.orders import Order
 from django.core.mail import send_mail
 from django.conf import settings
 from store.models.customer import Customer
+from store.tasks import send_order_confirm_email_task
 
 
 class CheckOut(View):
     def post(self, request):
         address = request.POST.get('address')
         phone = request.POST.get('phone')
-        customer = request.session.get('customer')
+        customer_id = request.session.get('customer')
+        customer = Customer.objects.get(id=customer_id)
         cart = request.session.get('cart')
         products = Products.get_products_by_id(list(cart.keys()))
         print(address, phone, customer, cart, products)
 
         for product in products:
             print(cart.get(str(product.id)))
-            order = Order(customer=Customer(id=customer),
+            order = Order(customer=customer,
                           product=product,
                           price=product.price,
                           address=address,
@@ -31,6 +33,9 @@ class CheckOut(View):
                           quantity=cart.get(str(product.id)))
             order.save()
         request.session['cart'] = {}
+        
+        send_order_confirm_email_task.delay(customer.email, 
+                                            customer.first_name)
         
 
         return redirect('cart')
