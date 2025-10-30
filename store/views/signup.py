@@ -18,13 +18,15 @@ class Signup(View):
         email = postData.get('email')
         password = postData.get('password')
         confirm_password = postData.get('confirm_password')
+        user_type = postData.get('user')
 
         # validation values for re-render
         value = {
             'first_name': first_name,
             'last_name': last_name,
             'phone': phone,
-            'email': email
+            'email': email,
+            'user' : user_type
         }
 
         error_message = None
@@ -37,9 +39,10 @@ class Signup(View):
                 last_name=last_name,
                 phone=phone,
                 email=email,
-                password=password
+                password=password,
+                user_type=user_type
             )
-            error_message = self.validateCustomer(customer)
+            error_message = self.validate_customer(customer)
 
         if not error_message:
             customer.password = make_password(customer.password)
@@ -55,7 +58,7 @@ class Signup(View):
             }
             return render(request, 'signup.html', data)
 
-    def validateCustomer(self, customer):
+    def validate_customer(self, customer):
         error_message = None
         password_pattern = r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$'
         
