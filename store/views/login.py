@@ -6,7 +6,7 @@ from django.views import View
 
 class Login(View):
     def get(self, request):
-        # Store the return URL (if user came from /cart or any protected page)
+        # Store return URL (if user came from /cart or any protected page)
         return_url = request.GET.get('return_url')
         request.session['return_url'] = return_url
         return render(request, 'login.html')
@@ -18,29 +18,30 @@ class Login(View):
         error_message = None
 
         if customer:
-            # Check password validity
             flag = check_password(password, customer.password)
+            
             if flag:
-                # Save customer session
+                # Save customer info in session
                 request.session['customer'] = customer.id
+                request.session['customer_role'] = customer.user_type.lower()
 
-                # Redirect to return_url if available
-                return_url = request.session.get('return_url')
-                if return_url:
-                    request.session['return_url'] = None 
-                    return HttpResponseRedirect(return_url)
-                else:
-                    return redirect('homepage')
+                # ✅ Redirect based on role
+                if customer.user_type == 'Seller':
+                    return redirect('store')  
+                elif customer.user_type == 'Buyer':
+                    return redirect('store')   
+
+                # (optional fallback)
+                return redirect('homepage')
+
             else:
                 error_message = 'Invalid password!'
         else:
             error_message = 'Email not found!'
 
-        # On login error, show message
         return render(request, 'login.html', {'error': error_message})
 
 
 def logout(request):
     request.session.clear()
     return redirect('login')
-
