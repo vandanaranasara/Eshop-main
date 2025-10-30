@@ -29,7 +29,7 @@ class Index(View):
 
         request.session['cart'] = cart
         print('cart', request.session['cart'])
-        return redirect('homepage')
+        return redirect('cart')
 
     def get(self, request):
         return HttpResponseRedirect(f'/store{request.get_full_path()[1:]}')
