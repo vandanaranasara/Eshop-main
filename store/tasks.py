@@ -21,3 +21,13 @@ def send_order_confirm_email_task(user_email, customer_name):
         recipient_list=[user_email],
         fail_silently=False,
     )
+    
+@shared_task
+def send_order_delievered_email_task(user_email, customer_name):
+    send_mail(
+        subject='Your Order Has Been Delieverd - Eshop',
+        message=f'Hi {customer_name}, Your order has been delievered successfully!',
+        from_email=settings.EMAIL_HOST_USER,
+        recipient_list=[user_email],
+        fail_silently=False,
+    )

@@ -15,6 +15,7 @@ class Order(models.Model):
     phone = models.IntegerField (blank=True, null=True)
     date = models.DateField (default=datetime.datetime.today)
     status = models.BooleanField (default=False)
+    email_sent = models.BooleanField (default=False)
 
     def placeOrder(self):
         self.save()
