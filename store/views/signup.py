@@ -45,7 +45,7 @@ class Signup(View):
             customer.password = make_password(customer.password)
             customer.register()
 
-            send_welcome_email_task.delay(email)
+            send_welcome_email_task.delay(email, first_name)
 
             return redirect('store')
         else:

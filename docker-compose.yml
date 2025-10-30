@@ -46,6 +46,7 @@ services:
       - .:/app
     depends_on:
       - redis
+    restart: always
 
 volumes:
   mysql_data:
