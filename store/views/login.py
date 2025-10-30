@@ -27,7 +27,7 @@ class Login(View):
                 # Redirect to return_url if available
                 return_url = request.session.get('return_url')
                 if return_url:
-                    request.session['return_url'] = None  # clear it
+                    request.session['return_url'] = None 
                     return HttpResponseRedirect(return_url)
                 else:
                     return redirect('homepage')

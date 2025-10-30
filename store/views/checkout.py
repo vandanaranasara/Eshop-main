@@ -16,6 +16,7 @@ from store.tasks import send_order_confirm_email_task
 class CheckOut(View):
     def post(self, request):
         address = request.POST.get('address')
+        pincode = request.POST.get('pincode')
         phone = request.POST.get('phone')
         customer_id = request.session.get('customer')
         customer = Customer.objects.get(id=customer_id)
@@ -29,6 +30,7 @@ class CheckOut(View):
                           product=product,
                           price=product.price,
                           address=address,
+                          pincode=pincode,
                           phone=phone,
                           quantity=cart.get(str(product.id)))
             order.save()

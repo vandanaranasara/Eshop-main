@@ -7,7 +7,6 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Eshop.settings')
 app = Celery('Eshop')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
-# This line automatically discovers tasks in all INSTALLED_APPS
 app.autodiscover_tasks()
 
 @app.task(bind=True)

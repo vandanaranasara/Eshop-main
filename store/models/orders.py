@@ -11,7 +11,8 @@ class Order(models.Model):
     quantity = models.IntegerField(default=1)
     price = models.IntegerField()
     address = models.CharField (max_length=50, default='', blank=True)
-    phone = models.CharField (max_length=50, default='', blank=True)
+    pincode = models.IntegerField(default=1)
+    phone = models.IntegerField (blank=True, null=True)
     date = models.DateField (default=datetime.datetime.today)
     status = models.BooleanField (default=False)
 

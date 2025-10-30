@@ -3,6 +3,7 @@ from django.contrib.auth.hashers import make_password
 from store.models.customer import Customer
 from django.views import View
 from store.tasks import send_welcome_email_task
+import re
 
 
 class Signup(View):
@@ -16,7 +17,7 @@ class Signup(View):
         phone = postData.get('phone')
         email = postData.get('email')
         password = postData.get('password')
-        confirm_password = postData.get('confirm_password')  # ✅ new line
+        confirm_password = postData.get('confirm_password')
 
         # validation values for re-render
         value = {
@@ -44,7 +45,6 @@ class Signup(View):
             customer.password = make_password(customer.password)
             customer.register()
 
-            # Send welcome email asynchronously
             send_welcome_email_task.delay(email)
 
             return redirect('store')
@@ -57,6 +57,9 @@ class Signup(View):
 
     def validateCustomer(self, customer):
         error_message = None
+        password_pattern = r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$'
+        
+        
         if not customer.first_name:
             error_message = "Please Enter your First Name !!"
         elif len(customer.first_name) < 3:
@@ -69,8 +72,13 @@ class Signup(View):
             error_message = 'Enter your Phone Number'
         elif len(customer.phone) < 10:
             error_message = 'Phone Number must be 10 char Long'
-        elif len(customer.password) < 5:
-            error_message = 'Password must be 5 char long'
+            
+        elif not re.match(password_pattern, customer.password):
+            error_message = (
+                "Password must be at least 8 characters long, contain at least one letter, "
+                "one number, and one special character (@, $, !, %, *, #, ?, &)."
+                )
+            
         elif len(customer.email) < 5:
             error_message = 'Email must be 5 char long'
         elif customer.isExists():

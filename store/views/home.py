@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from store.models.product import Products
 from store.models.category import Category
 from django.views import View
-from django.db.models import Q  # for complex search queries
+from django.db.models import Q 
 
 
 class Index(View):
@@ -43,10 +43,12 @@ def store(request):
     products = None
     categories = Category.get_all_categories()
     categoryID = request.GET.get('category')
+    
+    
     search_query = request.GET.get('search')  # get the search input
 
     if search_query:
-        # search by product name or description (case-insensitive)
+        # search by product name or description
         products = Products.objects.filter(
             Q(name__icontains=search_query) | Q(description__icontains=search_query)
         )
