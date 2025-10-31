@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -12,114 +13,133 @@
   <title>E-commerce Website</title>
 
   <style>
-    .navbar {
+  .navbar{
       background-color: green;
     }
-
     .one-edge-shadow {
-      box-shadow: 0 8px 2px -5px rgb(246, 245, 245);
-    }
+              box-shadow: 0 8px 2px -5px rgb(246, 245, 245);
+}
+.display-8{
+  font-weight: 200;
+  font-size: 30px;
+  font-colour: $teal-200;
+}
+.navbar-brand {
+  color: black;
+  font-weight: bold;
+}
 
-    .display-8 {
-      font-weight: 200;
-      font-size: 30px;
-    }
-
-    .text-logo {
-      color: black !important;
-    }
-
-    /* Make all navbar content inline and centered vertically */
-    .navbar-nav,
-    .navbar-brand,
-    .navbar form {
-      display: flex;
-      align-items: center;
-    }
-
-    .navbar form {
-      margin: 0 15px;
-    }
-
-    .navbar-nav li {
-      margin: 0 8px;
-    }
-
-    .navbar img {
-      width: 50px;
-      height: 50px;
-      margin-right: 8px;
-    }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light one-edge-shadow sticky-top text-white">
-    <a class="navbar-brand text-dark d-flex align-items-center" href="/">
-      <img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png" alt="Logo">
-      <span class="text-logo">E-Commerce</span>
-    </a>
+  <!-- navbar -->
 
+<nav class="one-edge-shadow navbar navbar-light sticky-top navbar navbar-expand-lg text-white">
+    {% if request.session.user_type != 'seller' %} 
+    <a class="navbar-brand ms-3 text-dark " href="/"> 
+    {% endif %}
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png" style="width:50px;height:50px,color:text-light;">E-Commerce</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
 
-      <!-- Left nav links -->
-      <ul class="navbar-nav mr-auto d-flex align-items-center">
-        <li class="nav-item active">
-          <a class="nav-link text-white" href="{% url 'store' %}">Store</a>
-        </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          {% if request.session.user_type != 'seller' %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'store' %}">Store <span class="sr-only">(current)</span></a>
+            </li>
+          {% endif %}
+
+        {% if request.session.user_type == 'seller' %}
         
-        <li class="nav-item active">
-          <a class="nav-link text-white" href="{% url 'add_product' %}">Add Products</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link text-white" href="{% url 'manage_orders' %}">Orders</a>
-        </li>
+          <li class="nav-item active ">
+            <a class="nav-link" href="{% url 'add_product' %}">Add products<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active ">
+            <a class="nav-link" href="{% url 'manage_orders' %}">Orders<span class="sr-only">(current)</span></a>
+          </li>
+        {% endif %}
+
+
+
       </ul>
 
-      <!-- Search bar -->
-      <form method="GET" action="/" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search products..."
-          value="{{ request.GET.search }}">
-        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <!-- search bar -->
+        <div class="d-flex justify-content-center mb-4 mt-3" >
+          <form method="GET" action="/" class="d-flex w-1">
+            <input 
+              type="text" 
+              name="search" 
+              class="form-control me-2 flex grow-1" 
+              placeholder="Search products..." 
+              value="{{ request.GET.search }}">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+        
+      <ul class=" navbar-nav my-2 my-lg-0">
+        {% if request.session.user_type == 'buyer' %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'cart' %}">Cart 
+              <span class="badge badge-success">{{request.session.cart.keys|length}}</span>
+              <span class="sr-only">(current)</span></a>
+          </li>
+        {% endif %}
+   
 
-      <!-- Right nav links -->
-      <ul class="navbar-nav ml-auto d-flex align-items-center">
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'cart' %}">
-            Cart <span class="badge badge-success">{{ request.session.cart.keys|length }}</span>
-          </a>
+        {% if request.session.customer %}
+          
+          {% if request.session.user_type != 'seller' %}
+        
+            <li class="nav-item active ">
+              <a class="nav-link" href="{% url 'orders' %}">Orders<span class="sr-only">(current)</span></a>
+            </li>
+          {% endif %}
+        <li class="nav-item active ">
+          <a class="nav-link" href="{% url 'logout' %}">Logout<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'orders' %}">Orders</a>
+        {% else %}
+       
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'signup' %}">Signup<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{% url 'logout' %}">Logout</a>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'login' %}">Login<span class="sr-only">(current)</span></a>
         </li>
+        {% endif %}
+
+
       </ul>
+
 
     </div>
+    
   </nav>
-
+  <!---->
   {% block content %}{% endblock %}
 
-  <!-- jQuery and Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+  
 </body>
+<!-- jQuery and Bootstrap JS (for modal functionality) -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
 </html>
+
