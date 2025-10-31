@@ -79,15 +79,17 @@
                     placeholder="Re-enter your password">
                 </div>
 
-                <!-- Type of user-->
-                <div class="form-group">
-                    <label for="">Register As</label>
-                    <select id="user" name="user" class="form-select" required>
-                    <option value="">Select User</option>
-                    <option value="Seller">Seller</option>
-                    <option value="Buyer">Buyer</option>
-                </div>
+                <!-- User type-->
 
+                <div>
+                    <label for="user_type">Register as:</label>
+                    <select name="user_type" required>
+                    <option name="select user"> Select User</option>
+                    <option value="buyer">Buyer</option>
+                    <option value="seller">Seller</option>
+                    </select><br><br>
+                </div>
+  
 
                 <hr>
                 <button type="submit" class="btn btn-sm btn-success col-lg-12">Create an account</button>

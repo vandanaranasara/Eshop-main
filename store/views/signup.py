@@ -18,7 +18,7 @@ class Signup(View):
         email = postData.get('email')
         password = postData.get('password')
         confirm_password = postData.get('confirm_password')
-        user_type = postData.get('user')
+        user_type = postData.get('user_type')
 
         # validation values for re-render
         value = {
@@ -26,7 +26,7 @@ class Signup(View):
             'last_name': last_name,
             'phone': phone,
             'email': email,
-            'user' : user_type
+            'user_type' : user_type
         }
 
         error_message = None
@@ -40,7 +40,7 @@ class Signup(View):
                 phone=phone,
                 email=email,
                 password=password,
-                user_type=user_type
+                user_type = user_type
             )
             error_message = self.validate_customer(customer)
 

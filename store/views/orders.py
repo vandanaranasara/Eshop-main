@@ -14,13 +14,6 @@ class OrderView(View):
         customer_id = request.session.get('customer')
         customer = Customer.objects.get(id=customer_id)
         orders = Order.get_orders_by_customer(customer)
-        #print(orders)
-        
-                
-        for order in orders:
-            if order.status:
-                send_order_delievered_email_task.delay(customer.email, customer.first_name)
-                order.save()
 
         return render(request , 'orders.html'  , {'orders' : orders})
     

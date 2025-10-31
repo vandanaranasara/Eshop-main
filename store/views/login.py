@@ -23,15 +23,8 @@ class Login(View):
             if flag:
                 # Save customer info in session
                 request.session['customer'] = customer.id
-                request.session['customer_role'] = customer.user_type.lower()
+                request.session['user_type'] = customer.user_type 
 
-                # ✅ Redirect based on role
-                if customer.user_type == 'Seller':
-                    return redirect('store')  
-                elif customer.user_type == 'Buyer':
-                    return redirect('store')   
-
-                # (optional fallback)
                 return redirect('homepage')
 
             else:

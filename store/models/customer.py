@@ -7,10 +7,12 @@ class Customer(models.Model):
     email=models.EmailField()
     password = models.CharField(max_length=100)
     USER_TYPE_CHOICES = [
-        ('Seller', 'Seller'),
-        ('Buyer', 'Buyer')
+        ('buyer', 'Buyer'),
+        ('seller', 'Seller'),
     ]
-    user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='Buyer')
+    user_type = user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='buyer')
+
+    
 
     #to save the data
     def register(self):

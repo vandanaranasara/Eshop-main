@@ -33,7 +33,7 @@ def send_order_confirm_email_task(user_email, customer_name):
    
     
 @shared_task
-def send_order_delievered_email_task(user_email, customer_name):
+def send_order_delievered_email_task(to_email, subject, message ):
     send_mail(
         subject='Your Order Has Been Delieverd - Eshop',
         message=f'Hi {customer_name}, Your order has been delievered successfully!',

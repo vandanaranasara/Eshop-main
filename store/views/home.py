@@ -62,5 +62,9 @@ def store(request):
         'categories': categories,
     }
 
-    print('you are : ', request.session.get('email'))
+    print('you are : ', request.session.get('user_type'))
     return render(request, 'index.html', data)
+
+def home(request):
+    print("Session data:", request.session.items())  # 👈 add this
+    return render(request, 'index.html')

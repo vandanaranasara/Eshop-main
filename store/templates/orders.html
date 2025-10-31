@@ -32,11 +32,19 @@
                     <td>{{order.price|currency}}</td>
                     <td>{{order.quantity}}</td>
                     <td>{{order.quantity|multiply:order.price|currency}}</td>
-                    {% if order.status %}
-                    <td><small class="badge badge-success">Completed</small></td>
-                    {%else%}
-                    <td><small class="badge badge-warning">Pending</small></td>
+                    {% if order.status == 'Delivered' %}
+                      <td><small class="badge badge-success">Delivered</small></td>
+
+                    {% elif order.status == 'Dispatched' %}
+                      <td><small class="badge badge-info">Dispatched</small></td>
+
+                    {% elif order.status == 'Confirmed' %}
+                      <td><small class="badge badge-primary">Confirmed</small></td>
+
+                    {% else %}
+                      <td><small class="badge badge-warning">Pending</small></td>
                     {% endif %}
+
                 </tr>
 
                 {% endfor %}
