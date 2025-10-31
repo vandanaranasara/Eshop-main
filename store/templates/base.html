@@ -37,11 +37,13 @@
   <!-- navbar -->
 
 <nav class="one-edge-shadow navbar navbar-light sticky-top navbar navbar-expand-lg text-white">
+  <a class="navbar-brand ms-3 text-dark " href="/">
+
     {% if request.session.user_type == 'buyer' %}
-    <a class="navbar-brand ms-3 text-dark " href="/"> 
+      <a class="navbar-brand ms-3 text-dark " href="{% url 'index' %}"> 
  
-    {% else %}
-    <a class="navbar-brand ms-3 text-dark " href="{% url 'seller_dashboard' %}"> 
+    {% elif request.session.user_type == 'seller' %}
+      <a class="navbar-brand ms-3 text-dark " href="{% url 'seller_dashboard' %}"> 
 
     {% endif %}
  
@@ -51,10 +53,6 @@
     style="width:50px;height:50px,color:text-light;">E-Commerce</a>
 
  
-
-
-
-
     <!-- toggle for mobile -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,6 +82,7 @@
       </ul>
 
       <!-- search bar -->
+      {% if request.session.user_type == 'buyer'%}
         <form method="GET" action="/" class="form-inline mx-auto" style="width:40%;">
           <input 
             type="text"
@@ -93,7 +92,8 @@
             value="{{ request.GET.search }}">
           <button class="btn btn-success" type="submit">Search</button>
         </form>
-        
+      {% endif %} 
+
       <ul class=" navbar-nav my-2 my-lg-0">
         {% if not request.session.user_type or request.session.user_type == 'buyer' %}
           <li class="nav-item active">

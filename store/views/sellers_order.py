@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from store.models.orders import Order
 from store.models.customer import Customer
 from django.views import View
-from store.tasks import send_order_delievered_email_task
 
 class ManageOrders(View):
     def get(self, request):

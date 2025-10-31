@@ -5,7 +5,6 @@ from django.views import View
 from store.models.product import Products
 from store.models.orders import Order
 from store.middlewares.auth import auth_middleware
-from store.tasks import send_order_delievered_email_task
 
 class OrderView(View):
 

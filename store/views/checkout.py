@@ -10,7 +10,6 @@ from store.models.orders import Order
 from django.core.mail import send_mail
 from django.conf import settings
 from store.models.customer import Customer
-from store.tasks import send_order_confirm_email_task
 
 
 class CheckOut(View):
@@ -36,9 +35,5 @@ class CheckOut(View):
             order.save()
         request.session['cart'] = {}
         
-        send_order_confirm_email_task.delay(customer.email, 
-                                            customer.first_name)
-        
-
         return redirect('cart')
     

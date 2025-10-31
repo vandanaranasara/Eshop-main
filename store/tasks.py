@@ -20,24 +20,3 @@ def send_welcome_email_task( user_email, customer_name):
         fail_silently=False,
     )
     
-@shared_task
-def send_order_confirm_email_task(user_email, customer_name):
-    send_mail(
-        subject='Order Confirmation - Eshop',
-        message=f'Hi {customer_name}, Thank you for your order! We’re excited to let you know that your order has been successfully received and is now being processed.',
-        
-        from_email=settings.EMAIL_HOST_USER,
-        recipient_list=[user_email],
-        fail_silently=False,
-    )
-   
-    
-@shared_task
-def send_order_delievered_email_task(to_email, subject, message ):
-    send_mail(
-        subject='Your Order Has Been Delieverd - Eshop',
-        message=f'Hi {customer_name}, Your order has been delievered successfully!',
-        from_email=settings.EMAIL_HOST_USER,
-        recipient_list=[user_email],
-        fail_silently=False,
-    )
