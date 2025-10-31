@@ -24,8 +24,11 @@ class Login(View):
                 # Save customer info in session
                 request.session['customer'] = customer.id
                 request.session['user_type'] = customer.user_type 
-
-                return redirect('homepage')
+                
+                if request.session['user_type'] == 'buyer' :
+                    return redirect('homepage')
+                else :
+                    return redirect('seller_dashboard')
 
             else:
                 error_message = 'Invalid password!'

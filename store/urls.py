@@ -9,6 +9,7 @@ from .views.orders import OrderView
 from .views import products
 from .views.sellers_order import ManageOrders
 from .middlewares.auth import  auth_middleware
+from . import views
 
 
 urlpatterns = [
@@ -22,5 +23,8 @@ urlpatterns = [
     path('orders/', auth_middleware(OrderView.as_view()), name='orders'),
     path('add_product/', products.add_product, name='add_product'),
     path('manage_orders/', ManageOrders.as_view(), name='manage_orders'),
+    path('seller_dashboard/', views.seller_dashboard, name='seller_dashboard'),
+    
 
 ]
+

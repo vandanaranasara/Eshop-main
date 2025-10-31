@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <title>E-commerce Website</title>
+  <title>Eshop</title>
 
   <style>
   .navbar{
@@ -23,31 +23,47 @@
   font-weight: 200;
   font-size: 30px;
   font-colour: $teal-200;
+  font-weight: bold;
 }
 .navbar-brand {
-  color: black;
-  font-weight: bold;
+  font-colour: $teal-200;
 }
 
   </style>
 </head>
 
 <body>
+
   <!-- navbar -->
 
 <nav class="one-edge-shadow navbar navbar-light sticky-top navbar navbar-expand-lg text-white">
-    {% if request.session.user_type != 'seller' %} 
+    {% if request.session.user_type == 'buyer' %}
     <a class="navbar-brand ms-3 text-dark " href="/"> 
-    {% endif %}
-
+ 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-    <img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png" style="width:50px;height:50px,color:text-light;">E-Commerce</a>
+    <img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png" 
+    style="width:50px;height:50px,color:text-light;">E-Commerce</a>
+
+    {% else %}
+    
+    <a class="navbar-brand ms-3 text-dark " href="{% url 'seller_dashboard' %}"> 
+ 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png" 
+    style="width:50px;height:50px,color:text-light;">E-Commerce</a>
+
+    {% endif %}
+
+
+
+
+    <!-- toggle for mobile -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -72,20 +88,18 @@
       </ul>
 
       <!-- search bar -->
-        <div class="d-flex justify-content-center mb-4 mt-3" >
-          <form method="GET" action="/" class="d-flex w-1">
-            <input 
-              type="text" 
-              name="search" 
-              class="form-control me-2 flex grow-1" 
-              placeholder="Search products..." 
-              value="{{ request.GET.search }}">
-            <button class="btn btn-success" type="submit">Search</button>
-          </form>
-        </div>
+        <form method="GET" action="/" class="form-inline mx-auto" style="width:40%;">
+          <input 
+            type="text"
+            name="search"
+            class="form-control w-75 mr-2"
+            placeholder="Search products..."
+            value="{{ request.GET.search }}">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
         
       <ul class=" navbar-nav my-2 my-lg-0">
-        {% if request.session.user_type == 'buyer' %}
+        {% if not request.session.user_type or request.session.user_type == 'buyer' %}
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'cart' %}">Cart 
               <span class="badge badge-success">{{request.session.cart.keys|length}}</span>
