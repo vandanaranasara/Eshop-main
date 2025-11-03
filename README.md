@@ -7,7 +7,7 @@ An online shopping platform developed using Django and Python, where users can b
 - User Registration, Login, and Logout
 - Email Notifications for registration and order updates
 
-  ### Feature 2: Seller Dashboard
+### Feature 2: Seller Dashboard
 - Add, Edit, and Delete Products
 - View All Listed Products
 - Manage Orders
