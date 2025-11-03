@@ -1,6 +1,7 @@
 # 🛒 Eshop 
 An online shopping platform developed using Django and Python, where users can browse products, add items to their cart, and securely place orders through an easy-to-use HTML frontend.
 
+
 # 🛍️ Features 
 ### Feature 1 :- User Management
 - Two types of users: Buyer and Seller
@@ -27,6 +28,7 @@ An online shopping platform developed using Django and Python, where users can b
 - Manage Buyers, Sellers, and Products
 - Monitor Platform Activity and Reports
 
+
 # 🛠️ Tech Stack
 
 - **Frontend:** HTML, CSS, Bootstrap (basic styling)  
@@ -34,6 +36,70 @@ An online shopping platform developed using Django and Python, where users can b
 - **Programming Language:** Python
 - **Database:** PostgreSQL
 - **Other Tools:** Django Admin, Celery, Redis, Docker etc.
+
+
+## 📂 Folder Structure
+
+```
+Eshop/
+│
+├── Eshop/
+│   ├── __pycache__/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── celery.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+├── store/
+│   ├── __pycache__/
+│   ├── middlewares/
+│   ├── migrations/
+│   ├── models/
+│   ├── templatetags/
+│   ├── views/
+│   │   ├── __pycache__/
+│   │   ├── __init__.py
+│   │   ├── cart.py
+│   │   ├── checkout.py
+│   │   ├── home.py
+│   │   ├── login.py
+│   │   ├── orders.py
+│   │   ├── products.py
+│   │   ├── seller_dashboard.py
+│   │   ├── sellers_order.py
+│   │   ├── signup.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── tasks.py
+│   │   ├── tests.py
+│   │   └── urls.py
+│   │
+│   ├── templates/
+│   │   ├── add_product.html
+│   │   ├── base.html
+│   │   ├── cart.html
+│   │   ├── index.html
+│   │   ├── login.html
+│   │   ├── manage_orders.html
+│   │   ├── orders.html
+│   │   ├── search.html
+│   │   ├── seller_dashboard.html
+│   │   └── signup.html
+│   │
+│   └── static/ (optional if exists)
+│
+├── uploads/
+├── venv/
+│
+├── .dockerignore
+├── .gitignore
+├── db.sqlite3
+├── docker-compose.yml
+├── dockerfile
+├── manage.py
+└── requirements.txt
 
 
 # 🚀 How to Run the Project
