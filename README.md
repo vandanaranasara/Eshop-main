@@ -59,7 +59,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-###5️⃣ Create a Superuser
+### 5️⃣ Create a Superuser
 ```bash
 python manage.py createsuperuser
 ```
@@ -70,18 +70,41 @@ Open your browser and go to:
 Admin panel:
 - http://127.0.0.1:8000/admin/
 
-## 🐳 Docker Commands
+## 🐳 Docker Setup
 
-### 1️⃣ Stop Containers (if running)
+Follow these steps to set up and run the project on your local system:
+
+### 1️⃣ Clone the Repository
+- Clone the project from GitHub using:
+ ```bash
+https://github.com/vandanaranasara/Eshop-main.git
+cd Eshop-main
+```
+
+### 2️⃣ Create a Virtual Environment
+```bash
+python -m venv venv
+```
+- Activate the Virtual Environment
+```bash
+venv\Scripts\activate
+```
+
+### 3️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4️⃣ Stop Containers (if running)
 ```bash
 docker compose down
 ```
-### 2️⃣ Build and Start Containers
+### 5️⃣ Build and Start Containers
 ```bash
 docker compose up --build
 ```
 
-### 7️⃣ Open the Website
+### 6️⃣ Open the Website
 
 Now open your browser and go to:
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
