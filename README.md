@@ -100,7 +100,7 @@ Eshop/
 ├── dockerfile
 ├── manage.py
 └── requirements.txt
-
+```
 
 # 🚀 How to Run the Project
 
