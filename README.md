@@ -53,6 +53,22 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+### 4️⃣ Run Database Migrations
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+###5️⃣ Create a Superuser
+```bash
+python manage.py createsuperuser
+```
+
+Open your browser and go to:
+- http://127.0.0.1:8000/
+Admin panel:
+- http://127.0.0.1:8000/admin/
+
 ## 🐳 Docker Commands
 
 ### 1️⃣ Stop Containers (if running)
