@@ -133,9 +133,19 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 5️⃣ Create a Superuser
+### 5️⃣ For Celery / Redis:
+```bash
+celery -A project_name worker -l info
+redis-server
+```
+
+### 6️⃣ Create a Superuser
 ```bash
 python manage.py createsuperuser
+```
+### 7️⃣Run the Development Server
+```bash
+python manage.py runserver
 ```
 
 Open your browser and go to:
