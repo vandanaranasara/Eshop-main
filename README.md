@@ -38,6 +38,7 @@ Follow these steps to set up and run the project on your local system:
 https://github.com/vandanaranasara/Eshop-main.git
 
 ### 2️⃣ Create a Virtual Environment
+```bash
 python -m venv venv
 
 
