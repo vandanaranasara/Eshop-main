@@ -36,5 +36,9 @@ Follow these steps to set up and run the project on your local system:
 Clone the project from GitHub using:
 ```bash
 https://github.com/vandanaranasara/Eshop-main.git
-cd Eshp-main
+cd Eshop-main
+
+### 2️⃣ Create a Virtual Environment
+python -m venv venv
+
 
