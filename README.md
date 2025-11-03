@@ -37,6 +37,7 @@ Follow these steps to set up and run the project on your local system:
  ```bash
 https://github.com/vandanaranasara/Eshop-main.git
 
+```markdown
 ### 2️⃣ Create a Virtual Environment
 ```bash
 python -m venv venv
