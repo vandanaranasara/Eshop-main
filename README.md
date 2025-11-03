@@ -3,11 +3,26 @@ An online shopping platform developed using Django and Python, where users can b
 
 # Features 
 ### Feature 1 :- User Management
-- **Two types of users:** Buyer and Seller
+- Two types of users: Buyer and Seller
 - User Registration, Login, and Logout
 - Email Notifications for registration and order updates
-  
-- FEATURE 2 :- 
-- FEATURE 3 :- 
-- FEATURE 4 :- 
-- FEATURE 5 :- 
+
+  ### Feature 2: Seller Dashboard
+- Add, Edit, and Delete Products
+- View All Listed Products
+- Manage Orders
+
+### Feature 3: Buyer Dashboard
+- Browse Products by category or search  
+- View Product Details
+- Add to Cart / Remove from Cart
+- Place Orders
+
+### Feature 4: Order & Shopping Cart Management
+- Add Multiple Products to Cart
+- Update Quantity or Remove Items
+- View Order Status (Pending, Shipped, Delivered)
+
+### Feature 5: Admin Dashboard
+- Manage Buyers, Sellers, and Products
+- Monitor Platform Activity and Reports
