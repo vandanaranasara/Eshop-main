@@ -32,13 +32,11 @@ An online shopping platform developed using Django and Python, where users can b
 
 Follow these steps to set up and run the project on your local system:
 
-```markdown
 ### 1️⃣ Clone the Repository
 - Clone the project from GitHub using:
  ```bash
 https://github.com/vandanaranasara/Eshop-main.git
 
-```markdown
 ### 2️⃣ Create a Virtual Environment
 ```bash
 python -m venv venv
