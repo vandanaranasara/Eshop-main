@@ -195,6 +195,12 @@ Open your browser and go to:
   
 Admin panel:
 - [http://localhost:8000/admin](http://localhost:8000/admin)
+
+## 📸 Screenshots
+
+| Homepage | Dashboard |
+|-----------|------------|
+| ![Home](screenshots/home.png) | ![Dashboard](screenshots/dashboard.png) |
   
 
 ## 👥 Contributor
