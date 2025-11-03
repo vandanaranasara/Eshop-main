@@ -198,9 +198,9 @@ Admin panel:
 
 ## 📸 Screenshots
 
-| Homepage | Dashboard |
+| Homepage | Signup |
 |-----------|------------|
-| ![Home](screenshots/home.png) | ![Dashboard](screenshots/dashboard.png) |
+| ![Home](screenshots/home.png) | ![Signup](screenshots/dashboard.png) |
   
 
 ## 👥 Contributor
