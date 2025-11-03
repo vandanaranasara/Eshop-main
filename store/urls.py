@@ -13,7 +13,8 @@ from . import views
 
 
 urlpatterns = [
-    path('', Index.as_view(), name='homepage'),
+    path('',Index.as_view(), name='homepage'),
+    path('index/', Index.as_view(), name='index'),
     path('store/', store , name='store'),
     path('signup/', Signup.as_view(), name='signup'),
     path('login/', Login.as_view(), name='login'),

@@ -66,5 +66,5 @@ def store(request):
     return render(request, 'index.html', data)
 
 def home(request):
-    print("Session data:", request.session.items())  # 👈 add this
+    print("Session data:", request.session.items()) 
     return render(request, 'index.html')
