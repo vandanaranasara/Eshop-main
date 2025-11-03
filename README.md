@@ -35,6 +35,6 @@ Follow these steps to set up and run the project on your local system:
 ### 1️⃣ Clone the Repository
 Clone the project from GitHub using:
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+https://github.com/vandanaranasara/Eshop-main.git
+cd Eshp-main
 
