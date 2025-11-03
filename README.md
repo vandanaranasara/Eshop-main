@@ -195,5 +195,10 @@ Open your browser and go to:
   
 Admin panel:
 - [http://localhost:8000/admin](http://localhost:8000/admin)
+  
+
+## 👥 Contributor
+
+- [Vandana Ranasara](https://github.com/vandanaranasara)
 
 
