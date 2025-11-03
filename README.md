@@ -199,12 +199,12 @@ Admin panel:
 ## 📸 Screenshots
 
 | Homepage | Signup | Login |
-|-----------|------------|
+|-----------|------------|------------|
 | ![Home](screenshots/home.png) | ![Signup](screenshots/signup.png) | ![Login](screenshots/login.png) |
 
 | Seller_Dashboard | Admin_Dashboard |
 |-----------|------------|
-| ![Seller_Dashboard](screenshots/seller_dashboard.png) | ![Admin_Dashboard](screenshots/admin_dashboard.png) |
+| ![Seller_Dashboard](screenshots/seller_dashboard.png) | ![Admin_Dashboard](screenshots/admin.png) |
 
 
 | Cart | Order |
