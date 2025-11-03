@@ -25,7 +25,7 @@ An online shopping platform developed using Django and Python, where users can b
 - View Order Status (Pending, Shipped, Delivered)
 
 ### Feature 5: Admin Dashboard
-- Manage Buyers, Sellers, and Categoris
+- Manage Buyers, Sellers, and Categories
 - Monitor Platform Activity and Reports
 
 
