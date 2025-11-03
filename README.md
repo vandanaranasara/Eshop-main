@@ -27,6 +27,14 @@ An online shopping platform developed using Django and Python, where users can b
 - Manage Buyers, Sellers, and Products
 - Monitor Platform Activity and Reports
 
+# 🛠️ Tech Stack
+
+- **Frontend:** HTML, CSS, Bootstrap (basic styling)  
+- **Backend:** Django (Python Framework)  
+- **Programming Language:** Python
+- **Database:** PostgreSQL
+- **Other Tools:** Django Admin, Celery, Redis, Docker etc.
+
 
 ## 🚀 How to Run the Project
 
