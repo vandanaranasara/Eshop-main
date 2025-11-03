@@ -198,10 +198,26 @@ Admin panel:
 
 ## 📸 Screenshots
 
-| Homepage | Signup |
+| Homepage | Signup | Login |
 |-----------|------------|
-| ![Home](screenshots/home.png) | ![Signup](screenshots/dashboard.png) |
-  
+| ![Home](screenshots/home.png) | ![Signup](screenshots/signup.png) | ![Login](screenshots/login.png) |
+
+| Seller_Dashboard | Admin_Dashboard |
+|-----------|------------|
+| ![Seller_Dashboard](screenshots/seller_dashboard.png) | ![Admin_Dashboard](screenshots/admin_dashboard.png) |
+
+
+| Cart | Order |
+|-----------|------------|
+| ![cart](screenshots/order.png) | ![Order](screenshots/order.png) |
+
+| Add_Products | Manage_Oreders |
+|-----------|------------|
+| ![Add_Products](screenshots/add_product.png) | ![Manage_Orders](screenshots/manage_orders.png) |
+
+
+
+
 
 ## 👥 Contributor
 
