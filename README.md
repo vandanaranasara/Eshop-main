@@ -43,8 +43,30 @@ cd Eshop-main
 ```bash
 python -m venv venv
 ```
--Activate the Virtual Environment
+- Activate the Virtual Environment
 ```bash
 venv\Scripts\activate
 ```
+
+### 3️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+## 🐳 Docker Commands
+
+### 1️⃣ Stop Containers (if running)
+```bash
+docker compose down
+```
+### 2️⃣ Build and Start Containers
+```bash
+docker compose up --build
+```
+
+### 7️⃣ Open the Website
+
+Now open your browser and go to:
+[http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+
 
