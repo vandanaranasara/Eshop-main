@@ -36,7 +36,7 @@ An online shopping platform developed using Django and Python, where users can b
 - **Other Tools:** Django Admin, Celery, Redis, Docker etc.
 
 
-## 🚀 How to Run the Project
+# 🚀 How to Run the Project
 
 Follow these steps to set up and run the project on your local system:
 
