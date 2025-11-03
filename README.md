@@ -63,14 +63,11 @@ python manage.py migrate
 ```bash
 python manage.py createsuperuser
 ```
-```markdown
+
 Open your browser and go to:
-```
 - http://127.0.0.1:8000/
   
-```markdown
 Admin panel:
-```
 - http://127.0.0.1:8000/admin/
 
 ## 🐳 Docker Commands
