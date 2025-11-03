@@ -190,6 +190,11 @@ docker compose up --build
 ```
 
 Now open your browser and go to:
-[http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+Open your browser and go to:
+- http://127.0.0.1:8000/
+  
+Admin panel:
+- [http://127.0.0.1:8000/](http://localhost:8000/)
+- http://localhost:8000/admin
 
 
