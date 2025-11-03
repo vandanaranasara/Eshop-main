@@ -143,6 +143,7 @@ redis-server
 ```bash
 python manage.py createsuperuser
 ```
+
 ### 7️⃣Run the Development Server
 ```bash
 python manage.py runserver
@@ -187,8 +188,6 @@ docker compose down
 ```bash
 docker compose up --build
 ```
-
-### 6️⃣ Open the Website
 
 Now open your browser and go to:
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
