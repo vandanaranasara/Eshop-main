@@ -157,7 +157,7 @@ Admin panel:
 
 ## 🐳 Docker Setup
 
-Follow these steps to set up and run the project on your local system:
+Follow these steps to set up and run the project using Docker :
 
 ### 1️⃣ Clone the Repository
 - Clone the project from GitHub using:
