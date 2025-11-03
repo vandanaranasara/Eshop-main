@@ -36,10 +36,15 @@ Follow these steps to set up and run the project on your local system:
 - Clone the project from GitHub using:
  ```bash
 https://github.com/vandanaranasara/Eshop-main.git
+cd Eshop-main
+```
 
-```markdown
 ### 2️⃣ Create a Virtual Environment
 ```bash
 python -m venv venv
-
+```
+-Activate the Virtual Environment
+```bash
+venv\Scripts\activate
+```
 
