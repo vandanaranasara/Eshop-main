@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-95t%=#4o3@l-(-%ok9*h%n3!0(sdchjn%+_$5#umaj-!3bg*7'
+SECRET_KEY = 'YOUR_DJANGO_SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.environ.get('DATABASE_NAME', 'ecom'),
         'USER': os.environ.get('DATABASE_USER', 'root'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'root'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'YOUR_ROOT_PASSWORD'),
         'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
         'PORT': os.environ.get('DATABASE_PORT', '3306'),   
     }
@@ -136,8 +136,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'       
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'vandana.ranasara25@gmail.com'       
-EMAIL_HOST_PASSWORD = 'qkpi zlbp zivd ejjn'     
+EMAIL_HOST_USER = 'your_email@example.com'       
+EMAIL_HOST_PASSWORD = 'YOUR_EMAIL_APP_PASSWORD'     
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Celery configuration
