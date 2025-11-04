@@ -34,7 +34,7 @@ An online shopping platform developed using Django and Python, where users can b
 - **Frontend:** HTML, CSS, Bootstrap (basic styling)  
 - **Backend:** Django (Python Framework)  
 - **Programming Language:** Python
-- **Database:** PostgreSQL
+- **Database:** MySQL
 - **Other Tools:** Django Admin, Celery, Redis, Docker etc.
 
 
