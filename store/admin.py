@@ -5,6 +5,11 @@ from .models.customer import Customer
 from .models.orders import Order
 
 
+#from django.contrib.auth.models import User
+#user = User.objects.get(username="your_username")
+#print(user.email)
+
+
 class AdminProduct(admin.ModelAdmin):
     list_display = ['name', 'price', 'category']
 
@@ -13,10 +18,10 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 # Register your models here.
-#admin.site.register(Products,AdminProduct)
+admin.site.register(Products,AdminProduct)
 admin.site.register(Category)
 admin.site.register(Customer)
-#admin.site.register(Order)
+admin.site.register(Order)
 
 
 # username = Vandana, email = vandana.ranasara25@gmail.com, password = 123admin

@@ -34,10 +34,11 @@
 
 <body>
 
-  <!-- navbar -->
+
+<!-- navbar -->
 
 <nav class="one-edge-shadow navbar navbar-light sticky-top navbar navbar-expand-lg text-white">
-  <a class="navbar-brand ms-3 text-dark " href="/">
+  {% comment %} <a class="navbar-brand ms-3 text-dark " href="/"> {% endcomment %}
 
     {% if request.session.user_type == 'buyer' %}
       <a class="navbar-brand ms-3 text-dark " href="{% url 'store' %}"> 

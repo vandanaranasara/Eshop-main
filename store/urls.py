@@ -10,6 +10,7 @@ from .views import products
 from .views.sellers_order import ManageOrders
 from .middlewares.auth import  auth_middleware
 from . import views
+from .views.customer_views import CustomLoginView
 
 
 urlpatterns = [
@@ -25,7 +26,11 @@ urlpatterns = [
     path('add_product/', products.add_product, name='add_product'),
     path('manage_orders/', ManageOrders.as_view(), name='manage_orders'),
     path('seller_dashboard/', views.seller_dashboard, name='seller_dashboard'),
+    path('api/customer/login/', CustomLoginView.as_view(), name='customer_login'),
+
+
     
+
 
 ]
 
