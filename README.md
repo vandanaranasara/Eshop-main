@@ -211,10 +211,9 @@ Admin panel:
 |-----------|------------|
 | ![cart](screenshots/order.png) | ![Order](screenshots/order.png) |
 
-| Add_Products | Manage_Oreders |
+| Add_Products | Manage_Orders |
 |-----------|------------|
 | ![Add_Products](screenshots/add_product.png) | ![Manage_Orders](screenshots/manage_orders.png) |
-
 
 
 
