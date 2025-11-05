@@ -2,15 +2,11 @@ from rest_framework import serializers
 from django.contrib.auth.hashers import make_password, check_password
 from .models import Customer
 
-
-# ✅ For viewing customer info
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
         fields = ['id', 'first_name', 'last_name', 'email', 'phone', 'user_type']
 
-
-# ✅ For registration (password will be hashed before saving)
 class CustomerRegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
@@ -21,7 +17,6 @@ class CustomerRegisterSerializer(serializers.ModelSerializer):
         return super().create(validated_data)
 
 
-# ✅ For login (checks hashed password)
 class CustomerLoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
@@ -35,7 +30,7 @@ class CustomerLoginSerializer(serializers.Serializer):
         except Customer.DoesNotExist:
             raise serializers.ValidationError({"error": "Invalid email or password"})
 
-        # ✅ Use Django's built-in password checker
+       
         if not check_password(password, customer.password):
             raise serializers.ValidationError({"error": "Invalid email or password"})
 

@@ -1,5 +1,3 @@
-# store/models/customer.py
-
 from django.db import models
 
 class Customer(models.Model):
@@ -28,3 +26,4 @@ class Customer(models.Model):
         if Customer.objects.filter(email=self.email):
             return True
         return False
+    

@@ -1,5 +1,3 @@
-# store/views/customer_views.py
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -21,11 +19,9 @@ class CustomLoginView(APIView):
         except Customer.DoesNotExist:
             return Response({"error": "Invalid email or password"}, status=status.HTTP_400_BAD_REQUEST)
 
-        # ✅ Compare hashed password properly
         if not check_password(password, customer.password):
             return Response({"error": "Invalid email or password"}, status=status.HTTP_400_BAD_REQUEST)
 
-        # ✅ Generate JWT tokens
         refresh = RefreshToken.for_user(customer)
 
         return Response({
