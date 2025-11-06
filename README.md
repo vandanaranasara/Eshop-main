@@ -109,7 +109,7 @@ Follow these steps to set up and run the project on your local system:
 ### 1️⃣ Clone the Repository
 - Clone the project from GitHub using:
  ```bash
-https://github.com/vandanaranasara/Eshop-main.git
+git clone https://github.com/vandanaranasara/Eshop-main.git
 cd Eshop-main
 ```
 
