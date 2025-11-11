@@ -6,8 +6,10 @@ services:
     container_name: mysql_db
     restart: always
     environment:
-      MYSQL_DATABASE: ecom
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${MYSQL_DB}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
@@ -24,10 +26,10 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_NAME=ecom
-      - DATABASE_USER=root
-      - DATABASE_PASSWORD=root
-      - DATABASE_HOST=db
+      - MYSQL_DB=${MYSQL_DB}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_HOST=db
     volumes:
       - .:/app
       - ./uploads:/uploads  
